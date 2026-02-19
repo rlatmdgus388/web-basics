@@ -1,0 +1,156 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* 
+[To do]
+1. pc 브라우저일 때 화면 가로로 배치
+    a. img flex로 가운데 정렬
+    b. 각 price plan 별 h2도 img 바로 밑에 flex로 가운데 정렬
+    c. ul, li도 마찬가지 (글씨 색은 파랑색 + 구분선 추가)
+    d. ul, li 밑에 가격 정렬 (파랑색에, bold 처리)
+    e. 가격표 밑에 버튼 배치 (:hover를 사용하여 커서가 올라가면 파랑색으로 변경되게 설정) 
+2. 모바일 화면에선 세로로 배치
+
+*/
+
+
+
+
+/* flexbox는 자식 요소를 배치하는 도구인데, img 태그는 자식을 가질 수 없는 Self-closing tag이기 때문에
+   적용이 안됨.
+img {
+    display: flex;
+    flex-direction: row;
+} 
+*/
+
+
+/* 1-a. panel 자식 요소들 flexbox 컨테이너화 후 가로, 가운데로 정렬 */
+.panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: skyblue;
+}
+
+/* 
+1-c. 
+1) pricing features 새로로 가운데 정렬.
+2) border 위 에만 적용(회색으로)
+3) max-width 활용해서 공간 배정
+*/
+.pricing-features{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: blue;
+}
+
+.pricing-features-item:nth-of-type(1) {
+    border-top: 1px solid gray;
+    padding: 20px;
+}
+
+.pricing-features-item:nth-of-type(2) {
+    border-top: 1px solid gray;
+    padding: 20px;
+}
+
+/* 1-b. pricing-header img 밑에 배치 밑 글자 색, 크기 조정 */
+.pricing-header {
+    font-size: larger;
+    color:grey;
+    font-weight: bold;
+    margin: 7%
+}
+
+/* 1-d. 
+1) pricing-plan 가운데로 정렬  
+2) 가격표 위에 테두리 생성
+*/
+.pricing-plan{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+}
+
+.pricing-plan:nth-last-of-type(1) {
+    border-top-right-radius: 3%;
+    border-bottom-right-radius: 3%;
+    border-left: 1px solid gray;
+}
+
+.pricing-plan:nth-last-of-type(3) {
+    border-top-left-radius: 3%;
+    border-bottom-left-radius: 3%;
+    border-right: 1px solid gray;
+}
+
+.pricing-price {
+    border-top: 1px solid gray;
+    padding: 5%;
+    font-size: larger;
+    font-weight: 800;
+    color: blue;
+}
+
+/* 1-e.
+1) pricing-button 버튼 생성
+2) 커서 갖다대면 :hover 효과 주기
+*/
+.pricing-button {
+    padding: 20px 40px;
+    margin-bottom: 50px;
+    border: 1px solid blue;
+    border-radius: 6%;
+}
