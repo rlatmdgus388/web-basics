@@ -6,21 +6,30 @@ h1 {
     font-size: 6em;
     text-align: center;
 }
+
 nav {
     font-size: 1.5em;
+    display: flex;
+    justify-content: space-between;
 }
 
+/* 
+cascade 법칙에 따라 나중에 작성된 코드가 적용됨. 처음에 inline으로 초기화 후 flex로 적용해야 
+문제없이 작동됨. ul과 ul, li 순서가 바뀌면 inline으로 초기화한게 나중에 적용이 되어
+space-evenly가 제대로 적용이 안됨.
+*/
 ul,li {
     display: inline;
     margin: 0;
     padding: 0;
 }
 
-/* @media (min-width: 600px) and (max-width: 800px) {
-    h1 {
-        color: purple;
-    }
-} */
+ul {
+    flex: 1;
+    max-width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+}
 
 
 @media (max-width: 500px) {
@@ -34,4 +43,46 @@ ul,li {
         color: orange;
     }
 }
+
+
+/* To do list 
+    1. 작은 화면에서도 h1이 한 줄로 표시되게 변경
+        a. 픽셀 <= width: 644px 이면 h1이 두 줄로 변경됨
+        -> 두 줄로 변경될때마다 font size 변경
+*/
+
+@media (max-width: 644px) {
+    h1 {
+        font-size: 5em;
+    }
+}
+
+/* 2. 포트뷰가 작아지면서 nav bar가 순차적으로 세로로 배치되는 문제
+    -> max-width: 563일 때 nav var를 중앙에 세로로 정렬
+*/
+@media (max-width: 563px) {
+    h1 {
+        font-size: 4em;
+    }
+    nav, nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 436px) {
+    h1 {
+        font-size: 3em;
+    }
+}
+
+@media (max-width: 331px) {
+    h1 {
+        font-size: 2em;
+    }
+}
+
+
+
+
 
